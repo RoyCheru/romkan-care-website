@@ -14,13 +14,13 @@ const empty: Form = { dept: "", doctor: "", time: "", name: "", phone: "", email
 export function Booking() {
   const [step, setStep] = useState(0);
   const [f, setF] = useState<Form>(empty);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Partial<Record<"dept" | "date" | "time" | "name" | "phone" | "email" | "notes", string>>>({});
   const [done, setDone] = useState<string | null>(null);
   const dept = departments.find((d) => d.id === f.dept);
   const set = <K extends keyof Form>(k: K, v: Form[K]) => setF((p) => ({ ...p, [k]: v }));
 
   function validate(s: number) {
-    const e: Record<string, string> = {};
+    const e: typeof errors = {};
     if (s === 0 && !f.dept) e.dept = "Please choose a department.";
     if (s === 1) {
       if (!f.date) e.date = "Please pick a date.";
