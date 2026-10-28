@@ -76,7 +76,7 @@ export function Booking() {
           <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
             {departments.map((d) => (
               <label key={d.id} className={cn("flex min-h-24 cursor-pointer flex-col items-start gap-2 rounded-2xl border-2 p-3 transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring", f.dept === d.id ? "border-primary bg-primary/5" : "border-border hover:border-primary/40")}>
-                <input type="radio" name="dept" value={d.id} checked={f.dept === d.id} onChange={() => { set("dept", d.id); set("doctor", d.doctors[0]); }} className="sr-only" />
+                <input type="radio" name="dept" value={d.id} checked={f.dept === d.id} onChange={() => { set("dept", d.id); set("doctor", d.doctors[0] ?? ""); }} className="sr-only" />
                 <d.icon className="size-5 text-primary" aria-hidden />
                 <span className="text-sm font-semibold text-foreground">{d.name}</span>
               </label>
