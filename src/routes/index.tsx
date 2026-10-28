@@ -153,7 +153,7 @@ function Index() {
 
         {/* AI chat */}
         <section id="assistant" aria-labelledby="ai-title" className="scroll-mt-24 bg-navy py-16 text-navy-foreground md:py-24">
-          <div className="container-x grid items-center gap-10 lg:grid-cols-2">
+          <div className="container-x grid grid-cols-[minmax(0,1fr)] items-center gap-10 lg:grid-cols-2">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Health assistant</p>
               <h2 id="ai-title" className="mt-2 text-3xl font-extrabold md:text-4xl">Questions at 2am? Ask Romi.</h2>
