@@ -208,7 +208,7 @@ function Index() {
               {posts.map((p) => (
                 <li key={p.slug}>
                   <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-card shadow-soft">
-                    <img src={blogImages[p.img].src} alt={blogImages[p.img].alt} width={1024} height={640} loading="lazy" className="h-36 w-full rounded-t-2xl object-cover" />
+                    <img src={blogImages[p.img]!.src} alt={blogImages[p.img]!.alt} width={1024} height={640} loading="lazy" className="h-36 w-full rounded-t-2xl object-cover" />
                     <div className="flex flex-1 flex-col p-6">
                       <p className="text-xs font-semibold uppercase tracking-wider text-teal">{p.category}</p>
                       <h3 className="mt-2 text-lg font-bold text-navy">{p.title}</h3>
