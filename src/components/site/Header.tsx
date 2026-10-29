@@ -30,6 +30,7 @@ const links = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState<"EN" | "SW">("EN");
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between gap-4 md:h-20">
@@ -46,8 +47,9 @@ export function Header() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
-          <a href="#book" className="hidden min-h-11 items-center rounded-full border-2 border-navy px-5 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-navy-foreground sm:inline-flex">
-            Book Appointment
+          <LangToggle lang={lang} onChange={setLang} className="hidden sm:inline-flex" />
+          <a href="#book" className="inline-flex min-h-11 items-center rounded-full border-2 border-navy px-4 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-navy-foreground sm:px-5">
+            Book<span className="hidden sm:inline"> Appointment</span>
           </a>
           <button
             type="button"
@@ -70,7 +72,10 @@ export function Header() {
               </li>
             ))}
             <li className="mt-2 grid gap-2 pb-2 sm:hidden">
-              <a href="#book" onClick={() => setOpen(false)} className="flex min-h-12 items-center justify-center rounded-full bg-gradient-primary font-semibold text-primary-foreground">Book Appointment</a>
+              <div className="flex items-center justify-between rounded-2xl bg-muted/60 px-4 py-2">
+                <span className="flex items-center gap-2 text-sm font-medium text-foreground/80"><Globe className="size-4" aria-hidden /> Language</span>
+                <LangToggle lang={lang} onChange={setLang} />
+              </div>
               <a href="tel:+254711999000" className="flex min-h-12 items-center justify-center gap-2 rounded-full border border-destructive/40 font-semibold text-destructive"><Phone className="size-4" /> Emergency line</a>
             </li>
           </ul>
