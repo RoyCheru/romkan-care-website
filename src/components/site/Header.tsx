@@ -1,6 +1,24 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Globe } from "lucide-react";
 import { Logo } from "./Logo";
+
+function LangToggle({ lang, onChange, className = "" }: { lang: "EN" | "SW"; onChange: (l: "EN" | "SW") => void; className?: string }) {
+  return (
+    <div className={`inline-flex items-center rounded-full border border-border bg-muted/60 p-0.5 text-xs font-semibold ${className}`} role="group" aria-label="Language">
+      {(["EN", "SW"] as const).map((l) => (
+        <button
+          key={l}
+          type="button"
+          aria-pressed={lang === l}
+          onClick={() => onChange(l)}
+          className={`min-h-8 rounded-full px-3 transition-colors ${lang === l ? "bg-navy text-navy-foreground" : "text-foreground/70 hover:text-navy"}`}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 const links = [
   { href: "#services", label: "Services" },
