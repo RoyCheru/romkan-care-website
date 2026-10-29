@@ -49,7 +49,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <LangToggle lang={lang} onChange={setLang} className="hidden sm:inline-flex" />
           <a href="#book" className="inline-flex min-h-11 items-center rounded-full border-2 border-navy px-4 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-navy-foreground sm:px-5">
-            Book<span className="hidden sm:inline"> Appointment</span>
+            Book<span className="hidden sm:inline">{" "}Appointment</span>
           </a>
           <button
             type="button"
