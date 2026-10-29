@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 function LangToggle({ lang, onChange, className = "" }: { lang: "EN" | "SW"; onChange: (l: "EN" | "SW") => void; className?: string }) {
   return (
-    <div className={`inline-flex items-center rounded-full border border-border bg-muted/60 p-0.5 text-xs font-semibold ${className}`} role="group" aria-label="Language">
+    <div className={`items-center rounded-full border border-border bg-muted/60 p-0.5 text-xs font-semibold ${className}`} role="group" aria-label="Language">
       {(["EN", "SW"] as const).map((l) => (
         <button
           key={l}
@@ -74,7 +74,7 @@ export function Header() {
             <li className="mt-2 grid gap-2 pb-2 sm:hidden">
               <div className="flex items-center justify-between rounded-2xl bg-muted/60 px-4 py-2">
                 <span className="flex items-center gap-2 text-sm font-medium text-foreground/80"><Globe className="size-4" aria-hidden /> Language</span>
-                <LangToggle lang={lang} onChange={setLang} />
+                <LangToggle lang={lang} onChange={setLang} className="inline-flex" />
               </div>
               <a href="tel:+254711999000" className="flex min-h-12 items-center justify-center gap-2 rounded-full border border-destructive/40 font-semibold text-destructive"><Phone className="size-4" /> Emergency line</a>
             </li>
