@@ -47,9 +47,9 @@ export const testimonials = [
 ];
 
 export const posts = [
-  { slug: "heart-health", title: "5 everyday habits for a healthier heart", excerpt: "Small changes to food, sleep and movement that make a real difference.", category: "Cardiology", date: "Oct 21, 2026", read: "4 min" },
-  { slug: "child-vaccines", title: "Your child's vaccine schedule, made simple", excerpt: "A clear guide to which vaccines your child needs and when.", category: "Pediatrics", date: "Oct 12, 2026", read: "6 min" },
-  { slug: "malaria-season", title: "Staying safe during the rainy season", excerpt: "How to spot early malaria signs and protect your family.", category: "General", date: "Oct 3, 2026", read: "5 min" },
+  { slug: "heart-health", title: "5 everyday habits for a healthier heart", excerpt: "Small changes to food, sleep and movement that make a real difference.", category: "Cardiology", date: "Oct 21, 2026", read: "4 min", img: "heart" },
+  { slug: "child-vaccines", title: "Your child's vaccine schedule, made simple", excerpt: "A clear guide to which vaccines your child needs and when.", category: "Pediatrics", date: "Oct 12, 2026", read: "6 min", img: "child" },
+  { slug: "malaria-season", title: "Staying safe during the rainy season", excerpt: "How to spot early malaria signs and protect your family.", category: "General", date: "Oct 3, 2026", read: "5 min", img: "malaria" },
 ];
 
 export const faqs = [

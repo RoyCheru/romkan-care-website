@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, Clock, Award, Users, Phone, Mail, MapPin, Star, Quote, CheckCircle2, Siren } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Award, Users, Phone, Mail, MapPin, Star, Quote, CheckCircle2, Siren, X } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/about.jpg";
+import blogHeart from "@/assets/blog-heart.jpg";
+import blogChild from "@/assets/blog-child.jpg";
+import blogMalaria from "@/assets/blog-malaria.jpg";
 import { Header } from "@/components/site/Header";
 import { Logo } from "@/components/site/Logo";
 import { Booking } from "@/components/site/Booking";
@@ -34,10 +38,27 @@ function SectionHead({ eyebrow, title, text, id }: { eyebrow: string; title: str
   );
 }
 
+const blogImages: Record<string, { src: string; alt: string }> = {
+  heart: { src: blogHeart, alt: "A doctor explaining heart health to a patient with a heart model" },
+  child: { src: blogChild, alt: "A pediatrician examining a smiling child held by his mother" },
+  malaria: { src: blogMalaria, alt: "A mother tucking a mosquito net over her child's bed while it rains outside" },
+};
+
 function Index() {
+  const [bannerOpen, setBannerOpen] = useState(true);
   return (
     <div id="top" className="min-h-dvh">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-card focus:px-4 focus:py-2">Skip to content</a>
+      {bannerOpen && (
+        <div className="bg-accent text-accent-foreground">
+          <div className="container-x flex min-h-8 items-center justify-center gap-3 py-1 text-center text-[11px] font-medium sm:text-xs">
+            <p>Demo hospital · Fictional content for presentation purposes</p>
+            <button type="button" onClick={() => setBannerOpen(false)} aria-label="Dismiss notice" className="grid size-6 shrink-0 place-items-center rounded-full transition-colors hover:bg-navy/10">
+              <X className="size-3.5" aria-hidden />
+            </button>
+          </div>
+        </div>
+      )}
       <div className="bg-navy text-navy-foreground">
         <div className="container-x flex min-h-10 items-center justify-between gap-3 text-xs sm:text-sm">
           <span className="flex items-center gap-2"><Siren className="size-4 shrink-0" aria-hidden /> 24/7 Emergency: <a href="tel:+254711999000" className="font-semibold underline-offset-2 hover:underline">{contact.emergency}</a></span>
@@ -53,7 +74,7 @@ function Index() {
           <div aria-hidden className="absolute bottom-0 right-0 hidden h-1/3 w-[38%] bg-accent lg:block" />
           <div className="container-x relative grid items-center gap-10 py-12 md:py-16 lg:grid-cols-2 lg:py-24">
             <div className="animate-rise">
-              <p className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground"><ShieldCheck className="size-4" aria-hidden /> Accredited by the Kenya Medical Board</p>
+              <p className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground"><ShieldCheck className="size-4" aria-hidden /> Licensed by KMPDC · SHA-accredited facility</p>
               <h1 id="hero-title" className="mt-5 text-4xl font-extrabold leading-[1.05] text-navy sm:text-5xl lg:text-6xl">Caring for you.<br />Every step<br />of the way.</h1>
               <p className="mt-5 max-w-md text-lg text-muted-foreground">Expert specialists, modern technology and genuine compassion — all under one roof in Nairobi.</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -102,13 +123,13 @@ function Index() {
         <section id="services" aria-labelledby="services-title" className="scroll-mt-24 bg-muted/60 py-16 md:py-24">
           <div className="container-x">
             <SectionHead id="services-title" eyebrow="Our services" title="Complete care for every stage of life" text="Ten departments working together so you get the right care, quickly." />
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            <ul className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4">
               {departments.map((d) => (
-                <li key={d.id} className="group flex flex-col rounded-2xl bg-card p-6 shadow-soft transition-transform hover:-translate-y-1">
-                  <span className="grid size-12 place-items-center rounded-xl bg-secondary text-secondary-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><d.icon className="size-6" aria-hidden /></span>
-                  <h3 className="mt-4 text-lg font-bold text-navy">{d.name}</h3>
-                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{d.blurb}</p>
-                  <a href="#book" className="mt-4 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary">Book <span className="sr-only">{d.name}</span><ArrowRight className="size-4" aria-hidden /></a>
+                <li key={d.id} className="group flex flex-col rounded-2xl bg-card p-4 shadow-soft transition-transform hover:-translate-y-1 sm:p-5">
+                  <span className="grid size-10 place-items-center rounded-xl bg-secondary text-secondary-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><d.icon className="size-5" aria-hidden /></span>
+                  <h3 className="mt-3 text-base font-bold text-navy">{d.name}</h3>
+                  <p className="mt-1 flex-1 text-sm text-muted-foreground line-clamp-1">{d.blurb}</p>
+                  <a href="#book" className="mt-3 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary">Book <span className="sr-only">{d.name}</span><ArrowRight className="size-4" aria-hidden /></a>
                 </li>
               ))}
             </ul>
@@ -184,10 +205,10 @@ function Index() {
           <div className="container-x">
             <SectionHead id="blog-title" eyebrow="Health blog" title="Advice from our doctors" />
             <ul className="mt-10 grid gap-4 md:grid-cols-3">
-              {posts.map((p, i) => (
+              {posts.map((p) => (
                 <li key={p.slug}>
                   <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-card shadow-soft">
-                    <div aria-hidden className={`h-36 ${["bg-secondary", "bg-accent", "bg-gradient-primary"][i]}`} />
+                    <img src={blogImages[p.img]!.src} alt={blogImages[p.img]!.alt} width={1024} height={640} loading="lazy" className="h-36 w-full rounded-t-2xl object-cover" />
                     <div className="flex flex-1 flex-col p-6">
                       <p className="text-xs font-semibold uppercase tracking-wider text-teal">{p.category}</p>
                       <h3 className="mt-2 text-lg font-bold text-navy">{p.title}</h3>
