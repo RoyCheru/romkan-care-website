@@ -1,54 +1,77 @@
-# Romkan Care Appointment Hub
+# Romkan Hospital Website
 
-Act as a senior healthcare UX/UI designer, creative director, conversion-focused website designer, and experienced frontend developer.
+A modern, responsive demo website for **Romkan Hospital**, a fictional Nairobi-based facility. I built it as a showcase of the public-facing website that hospitals and medical facilities can have as part of a wider digital system.
 
-Design and build a polished, premium, responsive public-facing website for Romkan Hospital. The website must communicate medical professionalism, compassion, safety, trust, and accessibility.
+🔗 **Live demo:** https://romkan-care-clinic.vercel.app/
+📸 **Preview:**
+---
+<img width="1293" height="605" alt="Screenshot 2026-11-02 161744" src="https://github.com/user-attachments/assets/2204b360-9518-430d-8731-153ffd4b5ea2" />
+<img width="1350" height="632" alt="Screenshot 2026-11-02 161839" src="https://github.com/user-attachments/assets/6851030f-567b-443f-867c-8c5b9e724637" />
 
-Use a distinctive, premium healthcare identity , check the image have shared , you can go with that design.
+## Overview
 
-Design mobile-first and test at approximately 360px, 390px, 768px, 1024px and 1440px widths.
+Many hospitals either have no website or have one that is outdated and hard to use on a phone. This project shows what a clean, trustworthy hospital web presence looks like, and it is the first piece of a larger hospital management ecosystem (see [Roadmap](#roadmap)).
 
-Ensure:
+## Features
 
-No horizontal overflow.
+- **One-page homepage** with smooth navigation between sections
+- **Services** section presenting departments and medical services
+- **Appointment booking** so patients can request a visit online
+- **Blog / health articles** to build trust and share health information
+- **Contact** section with location, phone and enquiry form
+- **Fully responsive** design for mobile, tablet and desktop
+- **Clean, professional UI** designed to feel credible and easy to use for patients
 
-Comfortable touch targets.
+## Tech Stack
 
-Clear focus states and keyboard navigation.
+| Area | Tools |
+|------|-------|
+| Framework | React + Vite + TypeScript |
+| Styling | Tailwind CSS, shadcn/ui 
+| Hosting | vercel |
 
-Semantic headings and landmarks.
+## Getting Started
 
-Accessible form labels and errors.
+```bash
+# Clone the repository
+git clone [your-repo-url]
+cd [repo-name]
 
-Sufficient color contrast.
+# Install dependencies
+npm install
 
-Reduced-motion preferences are respected.
-
-Mobile navigation and appointment CTAs are easy to use.
-
-The website should showcase the various services a Hospital offers including a seamless booking; the patient can choose department, select date and time, add some description,  review etc. 
-
-Include icons that lead to WhatsApp or other social media platforms like Facebook.  Include all sections required for a professional website which includes a blog section.  Also add a section where the patient can chat with an AI ( don't connect to real api).
-
-Only do the frontend design, using mock data. Do not implement any backend.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/5bf5c05e-98cc-4d99-8b1e-bcb6f994722c).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# Start the development server
 npm run dev
 ```
+
+The app will be available at `http://localhost:5173`.
+
+## Project Structure
+
+```
+src/
+├── components/    # Reusable UI components (Navbar, Hero, Services, Booking, Blog, Contact, Footer)
+├── pages/         # Page-level components
+├── assets/        # Images and static files
+└── ...
+```
+
+## Roadmap
+
+This website is the first stage of a bigger hospital systems plan:
+
+- [x] Public hospital website
+- [ ] Patient portal (appointments, records, history)
+- [ ] Staff and admin demo dashboards
+- [ ] Integration with [MediFlow](link-to-mediflow-repo), my hospital patient management and telehealth platform
+
+## Related Projects
+
+- **MediFlow:** hospital patient management and telehealth platform [https://mediflow-hospital-rho.vercel.app/]
+
+## About
+
+Built by **[Roy Cheruiyot**, a full stack developer moving into AI engineering, based in Kenya.
+
+- 💼 LinkedIn: 
+- 🌐 Portfolio: https://portfolio-one-dusky-2p2jy5182c.vercel.app/
